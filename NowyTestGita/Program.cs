@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text;
 
 namespace NowyTestGita
 {
@@ -83,6 +85,7 @@ namespace NowyTestGita
             Console.WriteLine("Podaj nazwe twojego konta");
             String NowyLogin = Console.ReadLine();
             Console.WriteLine("Witam {0} twoje konto zostalo utworzone",NowyLogin);
+            File.AppendAllText(@"C:\Users\Kamil\source\repos\NowyTestGita\NowyTestGita\ListaLoginow", NowyLogin+Environment.NewLine);
             Console.ReadKey();
         }
     }
