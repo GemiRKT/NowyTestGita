@@ -80,6 +80,8 @@ namespace NowyTestGita
 
     class Login
     {
+        String NowyLogin = Console.ReadLine();
+
         public void PodajLogin()
         {
             Console.WriteLine("Podaj nazwe twojego konta");
@@ -87,6 +89,20 @@ namespace NowyTestGita
             Console.WriteLine("Witam {0} twoje konto zostalo utworzone",NowyLogin);
             File.AppendAllText(@"C:\Users\Kamil\source\repos\NowyTestGita\NowyTestGita\ListaLoginow", NowyLogin+Environment.NewLine);
             Console.ReadKey();
+        }
+        public void SprawdzLogin()
+        {
+            Console.WriteLine("Podaj twoj Login");
+            String NowyLogin = Console.ReadLine();
+            if (File.ReadAllText(@"C:\Users\Kamil\source\repos\NowyTestGita\NowyTestGita\ListaLoginow").Contains(NowyLogin))
+            {
+                Console.WriteLine("Taki login juz istnieje");
+            }
+            else
+            {
+                Console.WriteLine("Jestes pierwszy z takim loginem");
+                Console.ReadKey();
+            }
         }
     }
 }
