@@ -13,33 +13,52 @@ namespace NowyTestGita
             Console.WriteLine("ktore haslo chcesz zgadnac?: ");
             Console.WriteLine("1.Haslo Noraza");
             Console.WriteLine("2.Haslo Gomeza");
-            Console.WriteLine("trzecia funkcja jaka dodamy");
+            Console.WriteLine("3.trzecia funkcja");
             Console.WriteLine("czwarta funkcja jaka dodamy");
             int wybor = Convert.ToInt32(Console.ReadLine());
+
+            Hasla wpisz = new Hasla();
+            Login stworz = new Login();
+           
             switch (wybor)
             {
-                case 1:
-                    Haslo wpisz = new Haslo();
-                    wpisz.Zgaduj();
+                case 1:  wpisz.HasloNoraza();
                     break;
-                case 2:
-                    Haslo2 wpisz2 = new Haslo2();
-                    wpisz2.ZgadujHaslo();
+                case 2:  wpisz.HasloGomeza();
+                    break;
+                case 3:  stworz.PodajLogin();
                     break;
                 default:
                     Console.WriteLine("zly wybor, wybierz 1 lub 2 ");
                     break;
             }
             Console.ReadKey();
-        }
+        }        
     }
-    class Haslo
+
+    class Hasla
     {
-        public void Zgaduj()
+        public void HasloGomeza()
+        {
+            while (true)
+            {             
+                Console.WriteLine("podaj slowo haslo:");
+                String haslo = Console.ReadLine();
+                if (haslo.Contains("tajemnica"))
+                {
+                    Console.WriteLine("Dobra robota");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("wpisz ponownie haslo");
+                }
+            }
+        }
+        public void HasloNoraza()
         {
             while (true)
             {
-
                 String haslowpisane;
                 String haslostale = "Zupa Pomidorowa";
                 Console.WriteLine("Prosze podac haslo: ");
@@ -52,25 +71,19 @@ namespace NowyTestGita
                 else
                 {
                     Console.WriteLine("jestes BARAaaaaN spróbuj ponownie:");
-
                 }
             }
         }
+    }  
 
-    }
-    class Haslo2
+    class Login
     {
-        public void ZgadujHaslo()
+        public void PodajLogin()
         {
-            while (true)
-            {
-                Console.WriteLine("podaj slowo haslo:");
-                string pytanie = Console.ReadLine();
-                if (pytanie.Contains("tajemnica"))
-                    return;
-                else { Console.WriteLine("wpisz ponownie haslo"); }
-
-            }
+            Console.WriteLine("Podaj nazwe twojego konta");
+            String NowyLogin = Console.ReadLine();
+            Console.WriteLine("Witam {0} twoje konto zostalo utworzone",NowyLogin);
+            Console.ReadKey();
         }
     }
 }
