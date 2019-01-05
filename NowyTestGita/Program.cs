@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace NowyTestGita
 {
     class Program
@@ -14,19 +13,20 @@ namespace NowyTestGita
             Console.WriteLine("ktore haslo chcesz zgadnac?: ");
             Console.WriteLine("1.Haslo Noraza");
             Console.WriteLine("2.Haslo Gomeza");
-            Console.WriteLine("trzecia funkcja jaka dodamy");
+            Console.WriteLine("3.trzecia funkcja");
             Console.WriteLine("czwarta funkcja jaka dodamy");
             int wybor = Convert.ToInt32(Console.ReadLine());
 
             Hasla wpisz = new Hasla();
+            Login stworz = new Login();
            
             switch (wybor)
             {
-                case 1:
-                    wpisz.HasloNoraza();
+                case 1:  wpisz.HasloNoraza();
                     break;
-                case 2:
-                    wpisz.HasloGomeza();
+                case 2:  wpisz.HasloGomeza();
+                    break;
+                case 3:  stworz.PodajLogin();
                     break;
                 default:
                     Console.WriteLine("zly wybor, wybierz 1 lub 2 ");
@@ -43,7 +43,7 @@ namespace NowyTestGita
             while (true)
             {             
                 Console.WriteLine("podaj slowo haslo:");
-                string haslo = Console.ReadLine();
+                String haslo = Console.ReadLine();
                 if (haslo.Contains("tajemnica"))
                 {
                     Console.WriteLine("Dobra robota");
@@ -75,4 +75,15 @@ namespace NowyTestGita
             }
         }
     }  
+
+    class Login
+    {
+        public void PodajLogin()
+        {
+            Console.WriteLine("Podaj nazwe twojego konta");
+            String NowyLogin = Console.ReadLine();
+            Console.WriteLine("Witam {0} twoje konto zostalo utworzone",NowyLogin);
+            Console.ReadKey();
+        }
+    }
 }
